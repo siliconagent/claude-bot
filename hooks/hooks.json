@@ -1,5 +1,5 @@
 {
-  "description": "Claude-bot plugin hooks for state management",
+  "description": "Claude-bot plugin hooks for state management and lifecycle (v2.0)",
   "hooks": {
     "SubagentStop": [
       {
@@ -27,6 +27,46 @@
           {
             "type": "command",
             "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/session-start.sh"
+          }
+        ]
+      }
+    ],
+    "PreBuild": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/pre-build.sh"
+          }
+        ]
+      }
+    ],
+    "PostBuild": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/post-build.sh"
+          }
+        ]
+      }
+    ],
+    "PreTest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/pre-test.sh"
+          }
+        ]
+      }
+    ],
+    "PostTest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/post-test.sh"
           }
         ]
       }

@@ -1,0 +1,100 @@
+# Build Configuration for Claude-Bot v2.0
+
+# Build retry settings
+retry:
+  max_attempts: 3
+  backoff_seconds: 5
+  retry_on_error: [dependency, type, syntax, network]
+
+# Build timeouts
+timeouts:
+  default: 300  # seconds
+  node: 300
+  python: 180
+  go: 120
+  rust: 600
+  java: 600
+
+# Build commands by language
+commands:
+  typescript:
+    primary: npm run build
+    alternatives:
+      - tsc
+      - webpack --mode production
+      - vite build
+      - next build
+
+  javascript:
+    primary: npm run build
+    alternatives:
+      - webpack --mode production
+      - vite build
+
+  python:
+    primary: python -m build
+    alternatives:
+      - poetry build
+      - pip install -e .
+
+  go:
+    primary: go build ./...
+    alternatives:
+      - go build -v ./...
+
+  rust:
+    primary: cargo build --release
+    alternatives:
+      - cargo build
+
+  java:
+    primary: mvn package
+    alternatives:
+      - gradle build
+
+# Artifact detection
+artifacts:
+  typescript:
+    - dist/**/*.js
+    - build/**/*.js
+    - out/**/*.js
+
+  python:
+    - build/**/*.whl
+    - dist/**/*.whl
+
+  go:
+    - binaries/**
+
+  rust:
+    - target/release/**
+
+  java:
+    - target/**/*.jar
+    - build/**/*.jar
+
+# Build environment
+environment:
+  node_options: --max-old-space-size=4096
+  python_version: 3.11
+  go_version: 1.21
+  rust_version: stable
+  java_version: 17
+
+# Error patterns to auto-fix
+auto_fix:
+  missing_dependency:
+    pattern: "(Cannot find module|Error: Cannot resolve|no such file or directory)"
+    fix: "install missing package"
+
+  type_error:
+    pattern: "TypeError.*Property.*does not exist"
+    fix: "add type annotation"
+
+  port_in_use:
+    pattern: "EADDRINUSE|port.*already in use"
+    fix: "kill process on port"
+
+  out_of_memory:
+    pattern: "JavaScript heap out of memory|ENOMEM"
+    fix: "increase heap size"

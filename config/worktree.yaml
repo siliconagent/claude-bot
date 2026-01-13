@@ -1,0 +1,48 @@
+# Worktree Configuration for Claude-Bot v2.0
+
+# Worktree defaults
+defaults:
+  base_dir: .git/worktrees
+  branch_prefix: claude-bot-
+  cleanup_policy: auto  # auto | manual | archive_on_failure
+
+# Worktree lifecycle
+lifecycle:
+  create_before_test: true
+  cleanup_after_test: true
+  archive_on_failure: true
+  prune_after_days: 7
+
+# Worktree purposes
+purposes:
+  playwright-testing:
+    branch_pattern: test-playwright-*
+    cleanup: after_test
+    keep_on_failure: true
+
+  unit-testing:
+    branch_pattern: test-unit-*
+    cleanup: after_test
+    keep_on_failure: false
+
+  validation:
+    branch_pattern: validate-*
+    cleanup: after_validation
+    keep_on_failure: true
+
+  parallel-development:
+    branch_pattern: parallel-*
+    cleanup: manual
+    keep_on_failure: true
+
+# Worktree limits
+limits:
+  max_concurrent_worktrees: 5
+  max_disk_usage_mb: 1000
+  max_age_hours: 24
+
+# Cleanup settings
+cleanup:
+  auto_prune: true
+  prune_frequency_hours: 24
+  keep_archived_days: 30

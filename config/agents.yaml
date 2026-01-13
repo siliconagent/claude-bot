@@ -1,0 +1,76 @@
+# Agent Configuration for Claude-Bot v2.0
+
+# Agent capabilities and limits
+agents:
+  planner:
+    capabilities: [planning, decomposition, dependency_analysis]
+    max_concurrent: 1
+    timeout: 300  # seconds
+    max_retries: 1
+
+  explorer:
+    capabilities: [code_analysis, pattern_detection, file_search]
+    max_concurrent: 4
+    timeout: 600
+    max_retries: 2
+
+  architect:
+    capabilities: [design, architecture, trade_off_analysis]
+    max_concurrent: 1  # sequential design
+    timeout: 900
+    max_retries: 1
+
+  implementer:
+    capabilities: [coding, file_creation, modification]
+    max_concurrent: 3
+    timeout: 1200
+    max_retries: 2
+
+  builder:
+    capabilities: [build, compilation, dependency_management]
+    max_concurrent: 1
+    timeout: 600
+    max_retries: 3  # build retries
+
+  validator:
+    capabilities: [code_review, security, quality, code_quality_enforcement]
+    max_concurrent: 3  # validator-1: security/correctness, validator-2: quality/performance, validator-3: code quality enforcement
+    timeout: 600
+    max_retries: 1
+
+  code_quality_enforcer:
+    capabilities: [mock_detection, web_search, naming_consistency, api_consistency]
+    max_concurrent: 1
+    timeout: 900
+    max_retries: 1
+
+  tester:
+    capabilities: [testing, playwright, unit_tests]
+    max_concurrent: 2  # unit + E2E parallel
+    timeout: 900
+    max_retries: 2
+
+  documenter:
+    capabilities: [documentation, examples, guides]
+    max_concurrent: 1
+    timeout: 600
+    max_retries: 1
+
+  requirements_validator:
+    capabilities: [requirements, acceptance_criteria]
+    max_concurrent: 1
+    timeout: 300
+    max_retries: 1
+
+# Agent pool settings
+pool:
+  max_total_agents: 10  # planner, explorer(3), architect(3), implementer, builder, validator(3), tester(2), requirements_validator, documenter, code_quality_enforcer
+  queue_size: 50
+  balance_workload: true
+
+# Task assignment rules
+assignment:
+  prefer_specialized: true
+  allow_cross_training: false
+  min_task_effort: 0.5  # hours
+  max_task_effort: 8  # hours
