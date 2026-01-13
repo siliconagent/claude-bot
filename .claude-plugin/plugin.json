@@ -1,0 +1,10 @@
+{
+  "name": "claude-bot",
+  "description": "Autonomous multi-agent workflow plugin for Claude Code. Runs 7-phase development cycle (Plan → Explore → Design → Implement → Validate → Test → Document) with full state persistence and auto-trigger capabilities.",
+  "author": {
+    "name": "SiliconAgent",
+    "email": "noreply@siliconagent.ai"
+  },
+  "license": "MIT",
+  "version": "1.0.0"
+}

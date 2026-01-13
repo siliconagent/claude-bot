@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "siliconagent",
+  "description": "SiliconAgent plugins marketplace - Claude Code extensions for autonomous development workflows",
+  "owner": {
+    "name": "SiliconAgent",
+    "email": "noreply@siliconagent.ai"
+  },
+  "plugins": [
+    {
+      "name": "claude-bot",
+      "description": "Autonomous multi-agent workflow plugin for Claude Code. Runs 7-phase development cycle (Plan → Explore → Design → Implement → Validate → Test → Document) with full state persistence and auto-trigger capabilities.",
+      "version": "1.0.0",
+      "source": "./",
+      "author": {
+        "name": "SiliconAgent",
+        "email": "noreply@siliconagent.ai"
+      },
+      "license": "MIT"
+    }
+  ]
+}
