@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SubagentStop": {
+      "command": "bash",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/subagent-stop.sh"]
+    },
+    "PreCompact": {
+      "command": "bash",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/pre-compact.sh"]
+    },
+    "SessionStart": {
+      "command": "bash",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/hooks/session-start.sh"]
+    }
+  }
+}

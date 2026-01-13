@@ -1,0 +1,8 @@
+{
+  "name": "claude-bot",
+  "description": "Autonomous multi-agent workflow plugin for Claude Code. Runs 7-phase development cycle (Plan → Explore → Design → Implement → Validate → Test → Document) with full state persistence and auto-trigger capabilities.",
+  "author": {
+    "name": "Claude Code Community",
+    "email": "community@claude-code.example.com"
+  }
+}
