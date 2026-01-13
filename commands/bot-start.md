@@ -31,12 +31,12 @@ The coordinator will orchestrate the following phases:
 ## Example
 
 ```
-/bot-start Add JWT authentication to the API
+/claude-bot:bot-start Add JWT authentication to the API
 ```
 
 ## Notes
 
-- Use /bot-status to check progress
-- Use /bot-resume if workflow is interrupted
-- Use /bot-stop to save and exit
+- Use /claude-bot:bot-status to check progress
+- Use /claude-bot:bot-resume if workflow is interrupted
+- Use /claude-bot:bot-stop to save and exit
 - The workflow pauses on blockers requiring user input

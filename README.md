@@ -13,8 +13,12 @@ Autonomous multi-agent workflow plugin for Claude Code that replicates Auto-Clau
 ## Installation
 
 ```bash
-# Install the plugin
-cc --plugin-dir /path/to/claude-bot
+# Install from local marketplace
+claude plugin marketplace add /path/to/claude-bot/.claude-plugin
+claude plugin install claude-bot@local
+
+# Or install from GitHub (after publishing)
+claude plugin install claude-bot@github
 ```
 
 ## Usage
@@ -27,10 +31,10 @@ I need to build an authentication system
 
 ### Manual Commands
 
-- `/bot-start [goal]` - Start autonomous workflow with a goal
-- `/bot-status` - Display current workflow state and progress
-- `/bot-resume` - Resume interrupted workflow from saved state
-- `/bot-stop` - Gracefully stop workflow and save state
+- `/claude-bot:bot-start [goal]` - Start autonomous workflow with a goal
+- `/claude-bot:bot-status` - Display current workflow state and progress
+- `/claude-bot:bot-resume` - Resume interrupted workflow from saved state
+- `/claude-bot:bot-stop` - Gracefully stop workflow and save state
 
 ## Workflow Phases
 
